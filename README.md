@@ -1,132 +1,133 @@
-<!-- language-all: javascript -->
+# Koii Fundraiser Web Application
 
-<h1 align="center">
-  <img src="https://raw.githubusercontent.com/koii-network/koii.X/main/.github/images/koii_logo.svg" width="224px"/><br/>
-  Create Koii Fundraise :fish: :moneybag:
-</h1>
-<p align="center">
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="typescript" />&nbsp;
-   <a href="https://discord.gg/koii" target="_blank"><img src="https://img.shields.io/badge/Discord-7289DA?style=flat&logo=discord&logoColor=white" alt="cli version" /></a>&nbsp;
-   <a href="http://koii.network/" target="_blank"> <img src="https://img.shields.io/badge/made%20by-koii-blue" alt="made-by-koii" /></a>&nbsp;
-</p>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/koii-network/koii.X/main/.github/images/koii_logo.svg" width="224px" alt="Koii Network Logo"/><br/>
+  <p>Create Koii Fundraise: A Decentralized Crowdfunding Platform</p>
 
-## ⚡️ Quick start
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="typescript" />
+  <a href="https://discord.gg/koii" target="_blank">
+    <img src="https://img.shields.io/badge/Discord-7289DA?style=flat&logo=discord&logoColor=white" alt="Discord" />
+  </a>
+  <a href="http://koii.network/" target="_blank">
+    <img src="https://img.shields.io/badge/made%20by-koii-blue" alt="made-by-koii" />
+  </a>
+</div>
 
-First of all, run `npx create-koii-fundraise` to create a Koii Fundraise Portal.
+## 📝 Project Overview
 
-After the installation is done head to the installed project and inside it run `yarn start`.
+The Koii Fundraiser is a decentralized web application designed to help creators and projects raise funds through a user-friendly, blockchain-powered crowdfunding platform. Built on the Koii Network, this application provides a transparent and secure way to manage fundraising campaigns.
 
-(If the `yarn start` doesn't work, please try `react-scripts --openssl-legacy-provider start`)
+### Key Features
+- Customizable fundraising portal
+- Support for multiple cryptocurrency payment types (Arweave, Ethereum)
+- Responsive and modern UI
+- Social media integration
+- Fully configurable project details
+- Decentralized deployment on Arweave
 
-## Table of Contents
+## 🚀 Getting Started
 
-- [Fundraiser Customization](#fundraiser-customization)
-- [Deploy to Arweave](#deploy-to-arweave)
-- [App Customization](#app-customization)
-- [Environment](#environment)
-  - [Node](#node)
-  - [Yarn](#yarn)
+### Prerequisites
+- Node.js (v16.13.1 LTS recommended)
+- Yarn package manager
 
-# Fundraiser Customization
-
-To customize your fundraiser head to [./src/config/funding-config.tsx](./src/config/funding-config.tsx) file in your app that you can change to match your portal config.
-
-Example:
-
-```javascript
-const config = {
-  title: "Plagiarism Registry DAO", // Project title
-  description: "Fighting plagiarism with a searchable, creator-owned world wide registry. Get rewarded for your work.", // Project description
-  companyName: "Koii Network Creator Studio",
-  fundGoal: 1000, // Your funding goal in "eth"
-  images: [
-    // Images to be placed in the top slider
-    { src: "https://picsum.photos/700" },
-    { src: "https://picsum.photos/701" },
-    { src: "https://picsum.photos/702" },
-    { src: "https://picsum.photos/703" },
-    { src: "https://picsum.photos/704" },
-    { src: "https://picsum.photos/705" }
-  ],
-  socials: {
-    // Your social network links
-    website: "https://koii.network",
-    twitter: "https://twitter.com/KoiiNetwork",
-    discord: "https://discord.com/invite/koii",
-    facebook: null,
-    github: "https://github.com/koii-network"
-  },
-  paymentType: "ar", // 'eth' or 'ar' Portal currency "eth" (ethereum) or "ar" (Arweave)
-  fundAddress: "_JHZaUrLyOVSf_t87GBASHXziurNqXmxJ0VgYg-rggM", // Your funding address that people will deposit to. (Ethereum or Arweave address, depends on paymentType)
-  // A brief description about the project as html.
-  about: (
-    <div>
-      <p>About us</p>
-    </div>
-  ),
-
-  faqs: [
-    // FAQs content
-    { question: "Question 1", answer: "Answer 1" },
-    { question: "Question 2", answer: "Answer 2" },
-    { question: "Question 3", answer: "Answer 3" }
-  ]
-};
-export default config;
+### Installation Steps
+1. Clone the repository
+```bash
+git clone https://github.com/your-repo/koii-fundraiser.git
+cd koii-fundraiser
 ```
 
-To change the logo of the fundraiser head to [./src/assets/](./src/assets) file in your app and replace the `logo.png` with your logo.
-
-# Deploy to Arweave
-
-Few simple steps to deploy to your crowdfunding portal to Arweave:
-
-1. Install [arkb](https://github.com/textury/arkb) globally on your machine. arkb runs using NodeJS and NPM. You must have both installed on your machine for it to work.
-
+2. Install dependencies
+```bash
+yarn install
 ```
+
+3. Start the development server
+```bash
+yarn start
+```
+
+### Environment Configuration
+Create a `.env` file in the project root for any required environment variables. Currently, no specific environment variables are required.
+
+## 🛠 Project Structure
+```
+koii-fundraiser/
+├── public/           # Static assets and HTML template
+├── src/
+│   ├── api/          # API service configurations
+│   ├── components/   # Reusable React components
+│   ├── config/       # Application and fundraiser configurations
+│   ├── hooks/        # Custom React hooks
+│   ├── pages/        # Top-level page components
+│   └── routes/       # Application routing
+```
+
+## 🔧 Technologies Used
+- React 17
+- TypeScript
+- Chakra UI
+- React Router
+- Axios
+- Web3
+- Arweave SDK
+- React Query
+
+## 🌟 Feature Highlights
+- Dynamic fundraising portal configuration
+- Multi-cryptocurrency support
+- Responsive design
+- Customizable project details
+- Social media links integration
+- FAQ section
+- Wallet integration
+
+## 🚢 Deployment
+
+### Deploying to Arweave
+1. Install arkb globally
+```bash
 npm install -g arkb
 ```
 
-2. Put your Arweave wallet keyfile inside the root folder under as `wallet.json`
+2. Place your Arweave wallet keyfile as `wallet.json` in the project root
 
-3. Finally, Run:
-
-```
- yarn deploy
-```
-
-To deploy to arweave :tada:
-
-# App Customization
-
-Edit the [./src/config/app-config](./src/config/app-config.ts) file to change the basic details about your app. e.g.
-
-```javascript
-const config = {
-  lang: "en", // language of your website
-  locale: "en_US", // locale of your website
-  title: "Koii Fundraiser DApp",
-  description: "Create Koii Fundraiser",
-  canonical: "https://crowdfunding-koii.vercel.app/", // Your production website link
-  twitterHandle: "@KoiiNetwork", // Twitter username
-  companyName: "Koii"
-};
+3. Deploy to Arweave
+```bash
+yarn deploy
 ```
 
-To change the favicon, head to [public](./public) folder and replace the `favicon.svg` with yours.
+### Other Deployment Options
+- Vercel
+- Netlify
+- GitHub Pages
 
-# Environment
+## 🔧 Customization
 
-### Node
+### Fundraiser Configuration
+Edit `src/config/funding-config.tsx` to customize:
+- Project title and description
+- Funding goal
+- Images
+- Social links
+- Payment type
+- About section
+- FAQs
 
-We recommend installing the latest LTS node version `v16.13.1` to provides stable compatibility with React
+### App Configuration
+Modify `src/config/app-config.ts` to adjust:
+- Language
+- Website metadata
+- Canonical URL
+- Company details
 
-- **Node v16.XX** (`node --version`)
+## 📄 License
+This project is open-source. Specific licensing details to be added.
 
-**[Or Download Node with NVM](https://github.com/nvm-sh/nvm#usage)**
+## 🤝 Contributing
+Contributions are welcome! Please check out the Koii Network's contribution guidelines.
 
-### Yarn
-
-We install and run our scripts with yarn, as an alternative to npm:
-
-**[Download Yarn](https://yarnpkg.com/lang/en/docs/install/)**
+## 📞 Support
+- Discord: [Koii Network Discord](https://discord.gg/koii)
+- Website: [Koii Network](https://koii.network)
