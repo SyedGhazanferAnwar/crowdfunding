@@ -1,132 +1,116 @@
-<!-- language-all: javascript -->
+# Koii Fundraiser Web Application
 
-<h1 align="center">
-  <img src="https://raw.githubusercontent.com/koii-network/koii.X/main/.github/images/koii_logo.svg" width="224px"/><br/>
-  Create Koii Fundraise :fish: :moneybag:
-</h1>
-<p align="center">
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="typescript" />&nbsp;
-   <a href="https://discord.gg/koii" target="_blank"><img src="https://img.shields.io/badge/Discord-7289DA?style=flat&logo=discord&logoColor=white" alt="cli version" /></a>&nbsp;
-   <a href="http://koii.network/" target="_blank"> <img src="https://img.shields.io/badge/made%20by-koii-blue" alt="made-by-koii" /></a>&nbsp;
-</p>
+## 🌟 Project Overview
 
-## ⚡️ Quick start
+Koii Fundraiser is a web application built to facilitate fundraising and crowdfunding activities using blockchain technology. The application provides a seamless platform for users to create, view, and contribute to various funding campaigns with enhanced transparency and decentralized features.
 
-First of all, run `npx create-koii-fundraise` to create a Koii Fundraise Portal.
+### 🚀 Key Features
+- Decentralized fundraising platform
+- Wallet integration (Finnie wallet support)
+- Real-time funding tracking
+- Social sharing capabilities
+- Secure blockchain-based transactions
 
-After the installation is done head to the installed project and inside it run `yarn start`.
+## 🛠 Getting Started
 
-(If the `yarn start` doesn't work, please try `react-scripts --openssl-legacy-provider start`)
+### Prerequisites
+- Node.js (v14 or later)
+- Yarn package manager
+- Finnie Wallet extension (recommended)
 
-## Table of Contents
-
-- [Fundraiser Customization](#fundraiser-customization)
-- [Deploy to Arweave](#deploy-to-arweave)
-- [App Customization](#app-customization)
-- [Environment](#environment)
-  - [Node](#node)
-  - [Yarn](#yarn)
-
-# Fundraiser Customization
-
-To customize your fundraiser head to [./src/config/funding-config.tsx](./src/config/funding-config.tsx) file in your app that you can change to match your portal config.
-
-Example:
-
-```javascript
-const config = {
-  title: "Plagiarism Registry DAO", // Project title
-  description: "Fighting plagiarism with a searchable, creator-owned world wide registry. Get rewarded for your work.", // Project description
-  companyName: "Koii Network Creator Studio",
-  fundGoal: 1000, // Your funding goal in "eth"
-  images: [
-    // Images to be placed in the top slider
-    { src: "https://picsum.photos/700" },
-    { src: "https://picsum.photos/701" },
-    { src: "https://picsum.photos/702" },
-    { src: "https://picsum.photos/703" },
-    { src: "https://picsum.photos/704" },
-    { src: "https://picsum.photos/705" }
-  ],
-  socials: {
-    // Your social network links
-    website: "https://koii.network",
-    twitter: "https://twitter.com/KoiiNetwork",
-    discord: "https://discord.com/invite/koii",
-    facebook: null,
-    github: "https://github.com/koii-network"
-  },
-  paymentType: "ar", // 'eth' or 'ar' Portal currency "eth" (ethereum) or "ar" (Arweave)
-  fundAddress: "_JHZaUrLyOVSf_t87GBASHXziurNqXmxJ0VgYg-rggM", // Your funding address that people will deposit to. (Ethereum or Arweave address, depends on paymentType)
-  // A brief description about the project as html.
-  about: (
-    <div>
-      <p>About us</p>
-    </div>
-  ),
-
-  faqs: [
-    // FAQs content
-    { question: "Question 1", answer: "Answer 1" },
-    { question: "Question 2", answer: "Answer 2" },
-    { question: "Question 3", answer: "Answer 3" }
-  ]
-};
-export default config;
+### Installation Steps
+1. Clone the repository
+```bash
+git clone https://github.com/your-org/koii-fundraiser.git
+cd koii-fundraiser
 ```
 
-To change the logo of the fundraiser head to [./src/assets/](./src/assets) file in your app and replace the `logo.png` with your logo.
-
-# Deploy to Arweave
-
-Few simple steps to deploy to your crowdfunding portal to Arweave:
-
-1. Install [arkb](https://github.com/textury/arkb) globally on your machine. arkb runs using NodeJS and NPM. You must have both installed on your machine for it to work.
-
-```
-npm install -g arkb
+2. Install dependencies
+```bash
+yarn install
 ```
 
-2. Put your Arweave wallet keyfile inside the root folder under as `wallet.json`
-
-3. Finally, Run:
-
+3. Set up environment variables
+Create a `.env` file in the project root and add necessary configuration:
 ```
- yarn deploy
-```
-
-To deploy to arweave :tada:
-
-# App Customization
-
-Edit the [./src/config/app-config](./src/config/app-config.ts) file to change the basic details about your app. e.g.
-
-```javascript
-const config = {
-  lang: "en", // language of your website
-  locale: "en_US", // locale of your website
-  title: "Koii Fundraiser DApp",
-  description: "Create Koii Fundraiser",
-  canonical: "https://crowdfunding-koii.vercel.app/", // Your production website link
-  twitterHandle: "@KoiiNetwork", // Twitter username
-  companyName: "Koii"
-};
+REACT_APP_API_ENDPOINT=https://your-api-endpoint.com
+REACT_APP_WALLET_CONFIG=your_wallet_configuration
 ```
 
-To change the favicon, head to [public](./public) folder and replace the `favicon.svg` with yours.
+4. Start the development server
+```bash
+yarn start
+```
 
-# Environment
+The application will be available at `http://localhost:3000`
 
-### Node
+## 🚢 Deployment
 
-We recommend installing the latest LTS node version `v16.13.1` to provides stable compatibility with React
+### Production Build
+```bash
+yarn build
+```
 
-- **Node v16.XX** (`node --version`)
+### Deployment Options
+- Arweave Deployment (Built-in Support)
+```bash
+yarn deploy:arkb  # Deploys to Arweave using arkb
+```
 
-**[Or Download Node with NVM](https://github.com/nvm-sh/nvm#usage)**
+## 📂 Project Structure
+```
+src/
+├── api/           # API interaction layers
+├── assets/        # Static assets
+├── components/    # Reusable React components
+│   ├── cards/
+│   ├── common/
+│   └── funding/
+├── config/        # Application configurations
+├── hooks/         # Custom React hooks
+├── pages/         # Top-level page components
+├── routes/        # Application routing
+└── services/      # Utility services and helpers
+```
 
-### Yarn
+## 🔧 Technologies Used
+- **Frontend**: React (TypeScript)
+- **State Management**: React Query
+- **UI Framework**: Chakra UI
+- **Routing**: React Router
+- **Form Handling**: React Hook Form
+- **Blockchain**: Arweave, Web3
+- **Styling**: SASS, Emotion
+- **Testing**: Jest, React Testing Library
 
-We install and run our scripts with yarn, as an alternative to npm:
+## ✨ Feature Highlights
+- Wallet Connection via Finnie
+- Detailed Funding Campaign Pages
+- Pledge and Contribution Tracking
+- Social Media Integration
+- Responsive Design
 
-**[Download Yarn](https://yarnpkg.com/lang/en/docs/install/)**
+## 🔒 Configuration
+- Supports environment-based configuration
+- Configurable API endpoints
+- Customizable UI themes
+- Extensible routing and state management
+
+## 📜 Scripts
+- `yarn start`: Start development server
+- `yarn build`: Create production build
+- `yarn test`: Run test suite
+- `yarn lint`: Run code linting
+- `yarn deploy`: Build and deploy to Arweave
+
+## 📄 License
+Currently Unlicensed. Please contact the project maintainers for licensing information.
+
+## 🤝 Contributing
+Contributions are welcome! Please check the issues page and feel free to submit pull requests.
+
+## 🔗 Additional Resources
+- [Koii Network Documentation](https://docs.koii.network)
+- [Arweave Documentation](https://docs.arweave.org)
+
+**Built with ❤️ by the Koii Network Team**
